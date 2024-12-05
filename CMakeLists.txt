@@ -29,6 +29,13 @@ CPMAddPackage("gh:TheLartians/PackageProject.cmake@1.8.0")
 #	GIT_TAG main
 #)
 
+# Add package: kthohr/gcem
+CPMAddPackage(
+	NAME gcem
+	GITHUB_REPOSITORY kthohr/gcem
+	VERSION 1.17.0
+)
+
 # ---- Add source files ----
 file(GLOB_RECURSE headers CONFIGURE_DEPENDS 
   "${CMAKE_CURRENT_SOURCE_DIR}/source/*.h"
@@ -41,7 +48,7 @@ file(GLOB_RECURSE sources CONFIGURE_DEPENDS
 
 # ---- Create library ----
 add_library(${PROJECT_NAME} ${headers} ${sources})
-set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 23)
+set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 20)
 
 target_include_directories(
   ${PROJECT_NAME} PUBLIC 
@@ -51,6 +58,8 @@ target_include_directories(
 
 # Example link library:
 #target_link_libraries(${PROJECT_NAME} hash)
+
+target_link_libraries(${PROJECT_NAME} gcem)
 
 # the location where the project's version header will be placed should match the project's regular
 # header paths

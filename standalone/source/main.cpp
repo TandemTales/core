@@ -1,5 +1,6 @@
 #include "ds.h"
 #include "log.h"
+#include "stk_math.h"
 
 using namespace stk;
 
@@ -15,5 +16,8 @@ int main()
 	{
 		logln("     {}", val);
 	}
+	c_rand r;
+	uint32_t r_uint = r.rand_int(1, 5);
+	logln("Random number from 1 to 5: {}", r_uint);
 	return 0;
 }
