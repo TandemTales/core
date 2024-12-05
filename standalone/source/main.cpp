@@ -1,10 +1,9 @@
-#include "template.h"
+#include "log.h"
 
 using namespace stk;
 
 int main()
 {
-	c_template tpl;
-	tpl.go_template();
+	debugln("boop");
 	return 0;
 }
