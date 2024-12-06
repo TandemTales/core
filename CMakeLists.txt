@@ -29,6 +29,19 @@ CPMAddPackage("gh:TheLartians/PackageProject.cmake@1.8.0")
 #	GIT_TAG main
 #)
 
+CPMAddPackage(
+	NAME sfml
+	GIT_TAG 2.5.1
+	GITHUB_REPOSITORY SFML/SFML
+	OPTIONS
+		"BUILD_SHARED_LIBS NO" # This tells CMake to build static libraries
+		"SFML_USE_STATIC_STD_LIBS YES" # This links SFML against the static runtime
+		"SFML_BUILD_AUDIO NO"
+		"SFML_BUILD_NETWORK NO"
+		"SFML_BUILD_GRAPHICS YES"
+		"SFML_BUILD_WINDOW YES"
+)
+
 # Add package: kthohr/gcem
 CPMAddPackage(
 	NAME gcem
@@ -37,10 +50,6 @@ CPMAddPackage(
 )
 
 # ---- Add source files ----
-#file(GLOB_RECURSE headers CONFIGURE_DEPENDS 
-#  "${CMAKE_CURRENT_SOURCE_DIR}/source/*.h"
-#  "${CMAKE_CURRENT_SOURCE_DIR}/source/*.hpp"
-#)
 file(GLOB_RECURSE sources CONFIGURE_DEPENDS 
   "${CMAKE_CURRENT_SOURCE_DIR}/source/*.h"
   "${CMAKE_CURRENT_SOURCE_DIR}/source/*.hpp"
@@ -61,7 +70,7 @@ target_include_directories(
 # Example link library:
 #target_link_libraries(${PROJECT_NAME} hash)
 
-target_link_libraries(${PROJECT_NAME} gcem)
+target_link_libraries(${PROJECT_NAME} sfml-graphics sfml-window gcem)
 
 # This line will create a folder hierarchy in the Visual Studio solution explorer
 # that matches the directory structure under ${CMAKE_CURRENT_SOURCE_DIR}/source.
