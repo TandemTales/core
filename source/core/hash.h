@@ -2,7 +2,7 @@
 #include <cstdint>
 #include <string>
 
-namespace stk
+namespace tt
 {
 	// Forward declarations
 	constexpr std::uint32_t murmur_hash3(const char* key, std::uint32_t len, std::uint32_t seed = 0);
@@ -13,18 +13,18 @@ namespace stk
 	{
 	public:
 		constexpr c_hash() : m_hash(0) {}
-		constexpr c_hash(std::uint32_t h) : m_hash(h) {}
+		constexpr c_hash(uint32_t h) : m_hash(h) {}
 		constexpr c_hash(char const* key, std::uint32_t len);
 		constexpr c_hash(std::string const& key);
 
-		operator std::uint32_t() const { return m_hash; }
+		operator uint32_t() const { return m_hash; }
 		constexpr bool operator==(const c_hash& rhs) const;
 		constexpr bool operator==(std::uint32_t rhs) const;
 		constexpr c_hash operator+(std::string const& key) const;
 
 	public:
 		// Intentionally make this public to allow CHashes to be used as non-type template parameters.
-		std::uint32_t m_hash;
+		uint32_t m_hash;
 	};
 
 	// Hash function implementation (needs to be in header for constexpr)

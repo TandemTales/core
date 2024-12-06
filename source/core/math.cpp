@@ -2,7 +2,7 @@
 #include <cmath>
 #include <corecrt_math_defines.h>
 
-namespace stk
+namespace tt
 {
     constexpr std::uint32_t next_prime(std::uint32_t x)
     {

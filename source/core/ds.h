@@ -5,7 +5,7 @@
 #include <iterator>
 #include <cstddef>
 
-namespace stk
+namespace tt
 {
 	template<class T, size_t N>
 	class c_fixed_vector
@@ -213,4 +213,4 @@ namespace stk
 		size_t m_count;
 	};
 
-} // namespace stk
+} // namespace tt

@@ -5,7 +5,7 @@
 #include <gcem.hpp>
 #include <limits>
 
-namespace stk
+namespace tt
 {
     // Returns the next prime number after x. Returns 0 if there is no prime number after uX that fits in a uint32_t.
     constexpr std::uint32_t next_prime(std::uint32_t x);

@@ -2,7 +2,9 @@
 #include "core/log.h"
 #include "core/math.h"
 
-using namespace stk;
+#include <cstdint>
+
+using namespace tt;
 
 int main()
 {
@@ -19,5 +21,6 @@ int main()
 	c_rand r;
 	uint32_t r_uint = r.rand_int(1, 5);
 	logln("Random number from 1 to 5: {}", r_uint);
+	logln("hash of fred is {}", static_cast<uint32_t>("fred"_h));
 	return 0;
 }

@@ -11,7 +11,7 @@
 #include <windows.h>     // for OutputDebugStringA
 #endif
 
-namespace stk
+namespace tt
 {
 	template<bool Debug = true, bool Line = false, bool Disabled = false, std::ostream&... ConstOstreams>
 	class c_logger
