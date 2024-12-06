@@ -1,4 +1,4 @@
-#include "stk_math.h"
+#include "math.h"
 #include <cmath>
 #include <corecrt_math_defines.h>
 

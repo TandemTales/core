@@ -1,6 +1,6 @@
-#include "ds.h"
-#include "log.h"
-#include "stk_math.h"
+#include "core/ds.h"
+#include "core/log.h"
+#include "core/math.h"
 
 using namespace stk;
 

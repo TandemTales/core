@@ -19,3 +19,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 )
 
 target_link_libraries(${PROJECT_NAME} core)
+
+# This line will create a folder hierarchy in the Visual Studio solution explorer
+# that matches the directory structure under ${CMAKE_CURRENT_SOURCE_DIR}/source.
+source_group(TREE "${CMAKE_CURRENT_SOURCE_DIR}/source" FILES ${sources})
