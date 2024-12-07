@@ -59,6 +59,14 @@ file(GLOB_RECURSE sources CONFIGURE_DEPENDS
 
 # ---- Create library ----
 add_library(${PROJECT_NAME} ${headers} ${sources})
+
+if(MSVC)
+    target_compile_options(${PROJECT_NAME} PRIVATE
+        $<$<CONFIG:Debug>:/MTd>
+        $<$<CONFIG:Release>:/MT>
+    )
+endif()
+
 set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 20)
 
 target_include_directories(

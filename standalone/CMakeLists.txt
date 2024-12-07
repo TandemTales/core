@@ -13,6 +13,14 @@ CPMAddPackage(NAME core SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/..)
 file(GLOB sources CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp")
 
 add_executable(${PROJECT_NAME} ${sources})
+
+if(MSVC)
+    target_compile_options(${PROJECT_NAME} PRIVATE
+        $<$<CONFIG:Debug>:/MTd>
+        $<$<CONFIG:Release>:/MT>
+    )
+endif()
+
 set_target_properties(${PROJECT_NAME} PROPERTIES 
     CXX_STANDARD 20
     OUTPUT_NAME "core"
